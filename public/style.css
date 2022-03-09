@@ -1,0 +1,53 @@
+.flex-disp {
+  display: flex;
+}
+
+.col-direction {
+  flex-direction: column;
+}
+.align-center {
+  align-items: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+.app .screen {
+  display: none;
+}
+
+.app .screen.active {
+  display: block;
+}
+
+.form-input button {
+  width: 15vw;
+}
+
+.form-input button:hover {
+  cursor: pointer;
+}
+.form-input label {
+  font-size: 18px;
+}
+.message {
+  display: flex;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.name {
+  font-weight: bold;
+  padding-right: 1rem;
+}
+.update {
+  color: rgb(99, 99, 99);
+}
+#exit-chat {
+  height: 50px;
+  width: 100px;
+  font-size: 1rem;
+}
+
+#exit-chat:hover {
+  cursor: pointer;
+}

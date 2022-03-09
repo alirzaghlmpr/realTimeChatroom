@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chat room</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- entry point of chat room -->
+      <div class="screen join-screen active">
+        <div class="flex-disp col-direction align-center">
+          <h1>join chat room</h1>
+          <div class="form-input">
+            <label>username : </label>
+            <input type="text" id="username" />
+          </div>
+          <br />
+          <div class="form-input">
+            <button id="join-user">join</button>
+          </div>
+        </div>
+      </div>
+      <!-- entry point of chat room -->
+
+      <!-- the chatroom -->
+      <div class="screen chat-screen">
+        <!-- header of chatroom -->
+        <div class="flex-disp justify-space-between align-center">
+          <h1>chatroom</h1>
+          <button id="exit-chat">exit</button>
+        </div>
+        <!-- header of chatroom -->
+
+        <hr />
+
+        <!-- messages part -->
+        <div class="messages">
+          <div class="message">
+            <p class="name"></p>
+            <p></p>
+          </div>
+          <p class="update"></p>
+          <div class="message">
+            <p class="name"></p>
+            <p></p>
+          </div>
+        </div>
+        <!-- messages part -->
+
+        <!-- typebox part -->
+        <div>
+          <input type="text" id="message-input" />
+          <button id="send-message">send</button>
+        </div>
+        <!-- typebox part -->
+      </div>
+      <!-- the chatroom -->
+    </div>
+
+    <!-- import socket.io js necessary file for socket in client side -->
+    <script src="socket.io/socket.io.js"></script>
+    <!-- import costum js file we created -->
+    <script src="./script.js"></script>
+  </body>
+</html>
