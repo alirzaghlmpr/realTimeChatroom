@@ -27,7 +27,23 @@ io.on("connection", (socket) => {
 
   //event when a message comes
   socket.on("chat", (message) => {
+    /*
+      use process.hrtime() to findout how much time need to broadcast message
+      this function return the difference of two time in high resolution in a array
+      first element is difference in second and second element is diffent in nanosecond
+    */
+    let now = process.hrtime();
     socket.broadcast.emit("chat", message);
+    let difference = process.hrtime(now);
+
+    //multipy the time diffrence in 10^-3 to convert the nanosecond to microseconds
+    console.log(
+      `new message:\nsender : ${message.username} :\nmessage text : ${
+        message.text
+      }\nelapsed time for send message : ${(difference[1] * 1e-3).toFixed(
+        0
+      )} microsec\n`
+    );
   });
 });
 
@@ -43,7 +59,7 @@ let port = 5000;
 
 //start the server on port 5000
 server.listen(port, () => {
-  console.log("server is running on port 5000");
+  console.log("server is running on port 5000\n");
 });
 
 /*
@@ -54,4 +70,7 @@ server.listen(port, () => {
  localhost:5000
 
  also you can change the port on your own
-*/
+
+ you can watch the broadcasting history in the terminal with folliwing info:
+ sender message,message content , estimated for send the message
+ */
