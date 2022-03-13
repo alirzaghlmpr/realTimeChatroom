@@ -29,3 +29,7 @@ now the server is running , open your browser and type :
 > localhost:{port}
 
 the default port on this program is 5000
+
+# broadcast to another system
+if you want to send the messages to different devices via different location , you should deploy the app on a VPS and use the given address to cmmunicate.
+to see the app demo deployed on [heroku](https://www.heroku.com/) click the [following link](https://chat-room-ali-gh.herokuapp.com/).
