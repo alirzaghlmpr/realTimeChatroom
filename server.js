@@ -36,13 +36,24 @@ io.on("connection", (socket) => {
     socket.broadcast.emit("chat", message);
     let difference = process.hrtime(now);
 
+    var today = new Date();
+    var date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
+    var time =
+      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date + " " + time;
+
     //multipy the time diffrence in 10^-3 to convert the nanosecond to microseconds
     console.log(
-      `new message:\nsender : ${message.username} :\nmessage text : ${
+      `new message!\nsender : ${message.username}\nmessage text : ${
         message.text
-      }\nelapsed time for send message : ${(difference[1] * 1e-3).toFixed(
-        0
-      )} microsec\n`
+      }\ntime : ${dateTime}\nelapsed time for send message : ${(
+        difference[1] * 1e-3
+      ).toFixed(0)} microsec\n`
     );
   });
 });
@@ -55,7 +66,7 @@ const path = require("path");
 app.use(express.static(path.join(__dirname, "public")));
 
 //define the port we want to use
-let port = 5000;
+let port = process.env.PORT || 5000;
 
 //start the server on port 5000
 server.listen(port, () => {
